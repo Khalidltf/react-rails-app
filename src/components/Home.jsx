@@ -1,4 +1,5 @@
 import Registration from "./auth/Registration";
+import Login from "./auth/Login";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
@@ -14,8 +15,8 @@ function Home({ handleLogin }) {
   return (
     <>
       <h1>Home</h1>
-
       <Registration handleSuccessfulAuth={handleSuccessfulAuth} />
+      <Login handleSuccessfulAuth={handleSuccessfulAuth} />
     </>
   );
 }
