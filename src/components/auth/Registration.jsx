@@ -35,7 +35,6 @@ function Registration({ handleSuccessfulAuth }) {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res);
         if (res.data.status === "created") {
           handleSuccessfulAuth(res.data);
         }

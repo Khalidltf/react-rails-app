@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 // eslint-disable-next-line react/prop-types
-function Home({ handleLogin }) {
+function Home({ loggedInStatus, handleLogin }) {
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const handleSuccessfulAuth = (data) => {
@@ -15,6 +15,7 @@ function Home({ handleLogin }) {
   return (
     <>
       <h1>Home</h1>
+      <h5>{loggedInStatus}</h5>
       <Registration handleSuccessfulAuth={handleSuccessfulAuth} />
       <Login handleSuccessfulAuth={handleSuccessfulAuth} />
     </>
