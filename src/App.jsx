@@ -1,11 +1,16 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
 import "./App.css";
 
 function App() {
   return (
-    <>
-      <h1>Hello mum</h1>
-      <h2>React rails app</h2>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
