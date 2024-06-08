@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./Registration.css";
 
-function Registration() {
+// eslint-disable-next-line react/prop-types
+function Registration({ handleSuccessfulAuth }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,7 +34,12 @@ function Registration() {
         },
         { withCredentials: true }
       )
-      .then((res) => console.log("res:", res))
+      .then((res) => {
+        console.log(res);
+        if (res.data.status === "created") {
+          handleSuccessfulAuth(res.data);
+        }
+      })
       .catch((error) => console.log("error:", error));
   };
 
