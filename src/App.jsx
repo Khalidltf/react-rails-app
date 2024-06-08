@@ -5,14 +5,22 @@ import Dashboard from "./components/Dashboard";
 import "./App.css";
 
 function App() {
-  const [loggedInStatus] = useState("not logged in");
-  const [user] = useState({});
+  const [loggedInStatus, setLoggedInStatus] = useState("not logged in");
+  const [user, setUser] = useState({});
+
+  const handleLogin = (data) => {
+    setLoggedInStatus("logged in");
+    setUser(data);
+  };
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home loggedInStatus={loggedInStatus} />} />
-        <Route path="/dashboard" element={<Dashboard user={user} />} />
+        <Route path="/" element={<Home handleLogin={handleLogin} />} />
+        <Route
+          path="/dashboard"
+          element={<Dashboard loggedInStatus={loggedInStatus} user={user} />}
+        />
       </Routes>
     </Router>
   );

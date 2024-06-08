@@ -3,17 +3,18 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 // eslint-disable-next-line react/prop-types
-function Home({ loggedInStatus }) {
+function Home({ handleLogin }) {
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const handleSuccessfulAuth = (data) => {
+    handleLogin(data);
     navigate("/dashboard");
   };
 
   return (
     <>
       <h1>Home</h1>
-      <h3>Status: {loggedInStatus}</h3>
+
       <Registration handleSuccessfulAuth={handleSuccessfulAuth} />
     </>
   );
