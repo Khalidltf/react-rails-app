@@ -15,16 +15,16 @@ function App() {
 
   function checkLoginStatus() {
     axios
-      .get("http://127.0.0.1:3000/logged_in", { withCredentials: true })
+      .get("http://127.0.0.1:3001/logged_in", { withCredentials: true })
       .then((res) => {
         console.log("Logged in? ", res.data);
-        if (res.data.logged_in && loggedInStatus === "not_logged_in") {
-          setLoggedInStatus("logged_in");
-          setUser(res.data);
-        } else if (!res.data.logged_in && loggedInStatus === "logged_in") {
-          setLoggedInStatus("not_logged_in");
-          setUser({});
-        }
+        // if (res.data.logged_in && loggedInStatus === "not_logged_in") {
+        //   setLoggedInStatus("logged_in");
+        //   setUser(res.data.user);
+        // } else if (!res.data.logged_in && loggedInStatus === "logged_in") {
+        //   setLoggedInStatus("not_logged_in");
+        //   setUser({});
+        // }
       })
       .catch((err) => {
         console.log(err);
@@ -32,7 +32,7 @@ function App() {
   }
 
   useEffect(() => {
-    checkLoginStatus();
+    checkLoginStatus(); /* there I can execute it AFTER the first render */
   }, []);
 
   return (

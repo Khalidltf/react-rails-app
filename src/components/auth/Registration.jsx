@@ -24,7 +24,7 @@ function Registration({ handleSuccessfulAuth }) {
     console.log("form submitted ...");
     axios
       .post(
-        "http://127.0.0.1:3000/registrations",
+        "http://127.0.0.1:3001/registrations",
         {
           user: {
             email: formData.email,
