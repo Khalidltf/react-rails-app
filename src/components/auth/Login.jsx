@@ -22,7 +22,7 @@ function Login({ handleSuccessfulAuth }) {
     e.preventDefault();
     axios
       .post(
-        "http://127.0.0.1:3001/sessions",
+        "http://localhost:3000/sessions",
         {
           user: {
             email: formData.email,

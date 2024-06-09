@@ -15,7 +15,7 @@ function Home({ loggedInStatus, handleLogin, handleLogout }) {
 
   const handleLogoutClick = () => {
     axios
-      .delete("http://127.0.0.1:3001/logout", { withCredentials: true })
+      .delete("http://localhost:3000/logout", { withCredentials: true })
       .then((res) => {
         console.log(res.data);
         handleLogout();
@@ -27,7 +27,7 @@ function Home({ loggedInStatus, handleLogin, handleLogout }) {
     <>
       <h1>Home</h1>
       <h5>{loggedInStatus}</h5>
-      <button onClick={() => handleLogoutClick}>Logout</button>
+      <button onClick={() => handleLogoutClick()}>Logout</button>
       <Registration handleSuccessfulAuth={handleSuccessfulAuth} />
       <Login handleSuccessfulAuth={handleSuccessfulAuth} />
     </>
