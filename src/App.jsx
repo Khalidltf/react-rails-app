@@ -35,13 +35,22 @@ function App() {
     checkLoginStatus(); /* there I can execute it AFTER the first render */
   }, []);
 
+  const handleLogout = () => {
+    setLoggedInStatus("not_logged_in");
+    setUser({});
+  };
+
   return (
     <Router>
       <Routes>
         <Route
           path="/"
           element={
-            <Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} />
+            <Home
+              loggedInStatus={loggedInStatus}
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+            />
           }
         />
         <Route
